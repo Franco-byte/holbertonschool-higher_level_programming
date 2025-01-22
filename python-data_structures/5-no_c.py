@@ -7,3 +7,6 @@ def no_c(my_string):
             noc_list.append(char)
     cadena = ''.join(noc_list)
     return cadena
+
+def no_c(my_string):
+    return "".join([c for c in my_string if c not in "cC"])
