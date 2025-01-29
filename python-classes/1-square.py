@@ -2,6 +2,8 @@
 '''
 Difained square size
 '''
+
+
 class Square:
     '''
     Add 'size' atribute
