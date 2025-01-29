@@ -6,7 +6,7 @@ Create a square
 
 class Square:
     '''
-    
+    Area calculator
     '''
     def __init__(self, size=0):
 
