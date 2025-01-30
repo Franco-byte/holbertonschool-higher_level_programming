@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 '''
-
+Create a square
 '''
 
 class Square:
     '''
-    
+    Size anda position square defined
     '''
     def __init__(self, size=0, position=(0, 0)):
         self.size = size
