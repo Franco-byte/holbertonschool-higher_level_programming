@@ -3,6 +3,7 @@
 Create a square
 '''
 
+
 class Square:
     '''
     Size anda position square defined
@@ -42,7 +43,7 @@ class Square:
 
     def my_print(self):
         if self.size == 0:
-            print()
+            return
 
         if self.position[1] > 0:
             for enter in range(self.position[1]):
