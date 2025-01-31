@@ -3,6 +3,7 @@
 Create a rectangle
 '''
 
+
 class Rectangle:
     '''
     Empty class
