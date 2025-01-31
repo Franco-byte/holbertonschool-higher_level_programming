@@ -54,5 +54,5 @@ class Rectangle:
             result.append("#" * self.width)
         return "\n".join(result)
 
-    def __repr__(self):
-        return f"<{self.__class__.__name__} object at {hex(id(self))}>"
+#    def __repr__(self):
+#        return f"<{self.__class__.__name__} object at {hex(id(self))}>"
