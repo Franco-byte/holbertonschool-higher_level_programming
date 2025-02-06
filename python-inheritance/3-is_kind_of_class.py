@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-'''
-Funtion to compare instans and clses
-'''
+inherits_from = __import__('4-inherits_from').inherits_from
 
-
-def is_kind_of_class(obj, a_class):
-    '''
-    Return True if "obj" is a instance of "a_class", otherwise False
-    '''
-    return isinstance(obj, a_class)
+a = True
+if inherits_from(a, int):
+    print("{} inherited from class {}".format(a, int.__name__))
+if inherits_from(a, bool):
+    print("{} inherited from class {}".format(a, bool.__name__))
+if inherits_from(a, object):
+    print("{} inherited from class {}".format(a, object.__name__))
