@@ -1,17 +1,20 @@
 #!/usr/bin/python3
 Rectangle = __import__('8-rectangle').Rectangle
 
-r = Rectangle(0, 4)
-
-print(r)
-print(dir(r))
+bg = Rectangle(22, "3")
+bg = Rectangle(8, 89)
 
 try:
-    print("Rectangle: {} - {}".format(r.width, r.height))
+    bg.integer_validator("name", "John")
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
 
 try:
-    r2 = Rectangle(4, True)
+    bg.integer_validator("age", 0)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+
+try:
+    bg.integer_validator("distance", -4)
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
