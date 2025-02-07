@@ -4,7 +4,7 @@ Square inherated to Rectangle
 '''
 
 
-Rectangle = __import__('9-rectangle.py').Rectangle
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
