@@ -22,16 +22,49 @@
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
 
->>> bg.area()  # Esto debe arrojar una excepción con el mensaje "area() is not implemented"
+>>> bg.area()
 Traceback (most recent call last):
     ...
 Exception: area() is not implemented
 
->>> bg.integer_validator("height", 10)
->>> bg.integer_validator("length", 15)
+>>> try:
+...     bg.integer_validator()
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-("", 12)
-()
-(,)
-(, 12)
-("hola", )
+>>> try:
+...     bg.integer_validator("age")  # Only one parameter
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+>>> try:
+...     bg.integer_validator("age", (4,))  # Tuple instead of int
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+>>> try:
+...     bg.integer_validator("age", [4])  # List instead of int
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+>>> try:
+...     bg.integer_validator("age", True)  # Boolean instead of int
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+>>> try:
+...     bg.integer_validator("age", {3, 4})  # Set instead of int
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+>>> try:
+...     bg.integer_validator("age", None)  # None instead of int
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
