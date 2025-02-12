@@ -5,6 +5,9 @@ Read a file text
 
 
 def read_file(filename=""):
+    '''
+    Read "filename" and print it
+    '''
     if filename == "":
         return
 
