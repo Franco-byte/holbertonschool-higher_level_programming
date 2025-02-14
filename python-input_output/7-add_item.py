@@ -12,8 +12,10 @@ import sys
 
 
 filename = 'add_item.json'
-word = []
+try:
+    word = load_from_json_file(filename)
+except FileNotFoundError:
+    word = []
 
-word = load_from_json_file(filename)
 word.extend(sys.argv[1:])
 save_to_json_file(word, filename)
