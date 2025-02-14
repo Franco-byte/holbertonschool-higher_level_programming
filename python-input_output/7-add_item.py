@@ -12,5 +12,8 @@ import sys
 
 
 filename = 'add_item.json'
-save_to_json_file(sys.argv[1:], filename)
-load_from_json_file(filename)
+word = []
+
+word = load_from_json_file(filename)
+word.extend(sys.argv[1:])
+save_to_json_file(word, filename)
