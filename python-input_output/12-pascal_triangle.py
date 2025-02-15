@@ -30,4 +30,3 @@ def pascal_triangle(n):
         prev_row = new_row
 
     return triangle
-
