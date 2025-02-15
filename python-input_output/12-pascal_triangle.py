@@ -13,7 +13,7 @@ def pascal_triangle(n):
     new_row = [1]
 
     if n == 1:
-        return [1]
+        return [[1]]
     if n == 2:
         return [[1], [1, 1]]
     if n <= 0:
@@ -28,6 +28,6 @@ def pascal_triangle(n):
         new_row.append(1)
         triangle.append(new_row)
         prev_row = new_row
-    
+
     return triangle
 
