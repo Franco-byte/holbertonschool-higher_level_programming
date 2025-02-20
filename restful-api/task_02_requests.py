@@ -1,5 +1,5 @@
 import requests
-import json
+import csv
 
 def fetch_and_print_posts():
     response = requests.get("https://jsonplaceholder.typicode.com/posts")
@@ -7,11 +7,21 @@ def fetch_and_print_posts():
     if response.status_code == 200:
         print("Status Code: 200")
         resp_json = response.json()
-        dict_json = json.loads(resp_json)
     
-        for key, value in resp_json:
-            if key == "title":
-                print(value)
+        for post in resp_json:
+            print(post['title'])
 
+def fetch_and_save_posts():
+    response = requests.get("https://jsonplaceholder.typicode.com/posts")
 
-fetch_and_print_posts()
+    if response.status_code == 200:
+        post = response.json()
+
+        keysname = ["id", "title", "body"]
+
+        with open("post.csv", mode="w", newline="", encoding="utf-8") as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=keysname)
+            writer.writeheader()
+
+            for post in post:
+                writer.writerow({"id": post["id"], "title": post["title"], "body": post["body"]})
