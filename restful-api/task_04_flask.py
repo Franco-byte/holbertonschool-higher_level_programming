@@ -13,6 +13,8 @@ def home():
 
 @app.route('/data')
 def data():
+    if not users:
+        return jsonify([])
     return jsonify(list(users.keys()))
 
 @app.route('/status')
@@ -29,19 +31,19 @@ def get_users(username):
 @app.route('/add_user', methods=['POST'])
 def add_user():
     data = request.get_json()
-    if not data or not isinstance(data, dict):
+    if data is None or not isinstance(data, dict):
         return jsonify({"error": "Invalid JSON format"}), 400
-    if not data or "username" not in data:
+    if "username" not in data:
         return jsonify({"error": "Username is required"}), 400
-    username = data["username"]
+    username = data["username"].strip().lower()
     if username in users:
         return jsonify({"error": "User already exists"}), 400
     
     users[username] = {
         "username": username,
-        "name": data.get("name"),
-        "age": data.get("age"),
-        "city": data.get("city")
+        "name": data.get("name", ""),
+        "age": data.get("age", 0),
+        "city": data.get("city", "")
     }
     return jsonify({"message": "User added", "user": users[username]}), 201
 
