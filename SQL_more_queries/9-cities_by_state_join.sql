@@ -1,0 +1,1 @@
+-- List al cities in database 
