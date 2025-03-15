@@ -9,9 +9,9 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     db = MySQLdb.connect(
-        user = username
-        pw = password
-        data_base = db_name
+        user = username,
+        pw = password,
+        data_base = db_name,
         port = 3306
     )
 
