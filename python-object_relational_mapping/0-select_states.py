@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Modulo comment
+"""
+
+
 import MySQLdb
 import sys
 
